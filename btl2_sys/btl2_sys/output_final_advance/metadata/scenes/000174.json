@@ -1,0 +1,374 @@
+{
+  "frame_id": 174,
+  "scene_mode": "sequence",
+  "rgb_source": "mesh",
+  "camera_profile": "forward",
+  "time_of_day": "day",
+  "traffic_flow": "into_scene",
+  "rgb_path": "images/rgb/000174.png",
+  "detection_path": "detection/000174.png",
+  "segment_vis_path": "images/segment/000174.png",
+  "depth_path": "depth/raw_npy/000174.npy",
+  "instance_mask_path": "masks/instance/000174.png",
+  "camera": {
+    "eye": [
+      0.0,
+      2.200000047683716,
+      8.5
+    ],
+    "target": [
+      0.0,
+      1.4000000953674316,
+      -14.0
+    ],
+    "up": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "fovy": 48.0,
+    "near": 0.1,
+    "far": 180.0
+  },
+  "lighting": {
+    "sun_direction": [
+      0.40657857060432434,
+      -0.9035078883171082,
+      -0.13552619516849518
+    ],
+    "sun_color": [
+      1.0,
+      0.9800000190734863,
+      0.949999988079071
+    ],
+    "sun_intensity": 1.2,
+    "fill_position": [
+      4.0,
+      6.0,
+      8.0
+    ],
+    "fill_color": [
+      0.6200000047683716,
+      0.6800000071525574,
+      0.75
+    ],
+    "fill_intensity": 0.95,
+    "street_light_color": [
+      1.0,
+      0.8999999761581421,
+      0.6800000071525574
+    ],
+    "street_light_intensity": 0.0,
+    "street_light_count": 8,
+    "sky_color": [
+      0.6000000238418579,
+      0.7300000190734863,
+      0.8999999761581421
+    ],
+    "ambient_strength": 0.3,
+    "shadow_enabled": true,
+    "shadow_strength": 0.7
+  },
+  "objects": [
+    {
+      "instance_id": 1,
+      "class_id": 6,
+      "class_name": "road",
+      "asset_key": "road_street",
+      "position": [
+        0.0,
+        0.0,
+        -24.0
+      ],
+      "yaw_deg": 0.0,
+      "extra_scale": 1.0,
+      "bbox_xywh": [
+        0,
+        349,
+        1280,
+        371
+      ],
+      "visible_pixels": 248150
+    },
+    {
+      "instance_id": 2,
+      "class_id": 7,
+      "class_name": "building",
+      "asset_key": "building_city",
+      "position": [
+        -18.0,
+        0.0,
+        -24.0
+      ],
+      "yaw_deg": 90.0,
+      "extra_scale": 1.05,
+      "bbox_xywh": [
+        0,
+        0,
+        404,
+        421
+      ],
+      "visible_pixels": 106340
+    },
+    {
+      "instance_id": 3,
+      "class_id": 7,
+      "class_name": "building",
+      "asset_key": "building_city",
+      "position": [
+        18.5,
+        0.0,
+        -24.0
+      ],
+      "yaw_deg": -90.0,
+      "extra_scale": 0.95,
+      "bbox_xywh": [
+        880,
+        0,
+        400,
+        416
+      ],
+      "visible_pixels": 116162
+    },
+    {
+      "instance_id": 4,
+      "class_id": 5,
+      "class_name": "tree",
+      "asset_key": "tree_tyro",
+      "position": [
+        -10.739070892333984,
+        0.0,
+        -19.218900680541992
+      ],
+      "yaw_deg": 34.44284893330699,
+      "extra_scale": 1.2486841510093067,
+      "bbox_xywh": [
+        263,
+        173,
+        176,
+        251
+      ],
+      "visible_pixels": 22908
+    },
+    {
+      "instance_id": 5,
+      "class_id": 5,
+      "class_name": "tree",
+      "asset_key": "tree_tyro",
+      "position": [
+        13.405586242675781,
+        0.0,
+        -12.967169761657715
+      ],
+      "yaw_deg": 294.4642663217402,
+      "extra_scale": 0.931716839319303,
+      "bbox_xywh": [
+        980,
+        204,
+        296,
+        225
+      ],
+      "visible_pixels": 32993
+    },
+    {
+      "instance_id": 6,
+      "class_id": 5,
+      "class_name": "tree",
+      "asset_key": "tree_tyro",
+      "position": [
+        -11.71121597290039,
+        0.0,
+        -13.038662910461426
+      ],
+      "yaw_deg": 22.379606708930943,
+      "extra_scale": 1.2274858271062772,
+      "bbox_xywh": [
+        0,
+        122,
+        305,
+        349
+      ],
+      "visible_pixels": 46758
+    },
+    {
+      "instance_id": 7,
+      "class_id": 5,
+      "class_name": "tree",
+      "asset_key": "tree_tyro",
+      "position": [
+        12.96056842803955,
+        0.0,
+        -29.76736068725586
+      ],
+      "yaw_deg": 9.126612139708836,
+      "extra_scale": 0.8894040080980338,
+      "bbox_xywh": [
+        832,
+        264,
+        123,
+        114
+      ],
+      "visible_pixels": 6777
+    },
+    {
+      "instance_id": 8,
+      "class_id": 0,
+      "class_name": "car",
+      "asset_key": "car_audi_r8",
+      "position": [
+        2.6841073036193848,
+        0.0,
+        -7.187565803527832
+      ],
+      "yaw_deg": 4.299875887577064,
+      "extra_scale": 1.070371070609678,
+      "bbox_xywh": [
+        708,
+        373,
+        104,
+        83
+      ],
+      "visible_pixels": 5645
+    },
+    {
+      "instance_id": 9,
+      "class_id": 0,
+      "class_name": "car",
+      "asset_key": "car_audi_r8",
+      "position": [
+        -2.699439525604248,
+        0.0,
+        -0.5804470777511597
+      ],
+      "yaw_deg": 182.59728998821652,
+      "extra_scale": 1.0744650411344296,
+      "bbox_xywh": [
+        220,
+        403,
+        291,
+        167
+      ],
+      "visible_pixels": 37828
+    },
+    {
+      "instance_id": 10,
+      "class_id": 0,
+      "class_name": "car",
+      "asset_key": "car_mercedes",
+      "position": [
+        2.778898239135742,
+        0.0,
+        -0.5170249938964844
+      ],
+      "yaw_deg": 0.47067378224617684,
+      "extra_scale": 0.9391731984472325,
+      "bbox_xywh": [
+        780,
+        376,
+        277,
+        185
+      ],
+      "visible_pixels": 36846
+    },
+    {
+      "instance_id": 11,
+      "class_id": 0,
+      "class_name": "car",
+      "asset_key": "car_audi_r8",
+      "position": [
+        -2.8782541751861572,
+        0.0,
+        -7.909832000732422
+      ],
+      "yaw_deg": 171.63451383028632,
+      "extra_scale": 0.9961798742897177,
+      "bbox_xywh": [
+        426,
+        376,
+        137,
+        75
+      ],
+      "visible_pixels": 5456
+    },
+    {
+      "instance_id": 12,
+      "class_id": 1,
+      "class_name": "truck",
+      "asset_key": "truck_main",
+      "position": [
+        2.762265920639038,
+        0.0,
+        -46.57246017456055
+      ],
+      "yaw_deg": -2.037038406970904,
+      "extra_scale": 1.0739941939020166,
+      "bbox_xywh": [
+        666,
+        326,
+        31,
+        39
+      ],
+      "visible_pixels": 973
+    },
+    {
+      "instance_id": 13,
+      "class_id": 4,
+      "class_name": "person",
+      "asset_key": "person_billboard",
+      "position": [
+        7.655202865600586,
+        0.009260522201657295,
+        -13.733838081359863
+      ],
+      "yaw_deg": 0.0,
+      "extra_scale": 0.989966439113606,
+      "bbox_xywh": [
+        902,
+        350,
+        39,
+        36
+      ],
+      "visible_pixels": 683
+    },
+    {
+      "instance_id": 14,
+      "class_id": 4,
+      "class_name": "person",
+      "asset_key": "person_billboard",
+      "position": [
+        7.621906280517578,
+        -0.035450298339128494,
+        -9.79300308227539
+      ],
+      "yaw_deg": 0.0,
+      "extra_scale": 1.05489915362181,
+      "bbox_xywh": [
+        943,
+        352,
+        63,
+        74
+      ],
+      "visible_pixels": 1756
+    },
+    {
+      "instance_id": 15,
+      "class_id": 4,
+      "class_name": "person",
+      "asset_key": "person_billboard",
+      "position": [
+        7.276758670806885,
+        0.043465934693813324,
+        -14.410897254943848
+      ],
+      "yaw_deg": 0.0,
+      "extra_scale": 1.0631717316337868,
+      "bbox_xywh": [
+        870,
+        344,
+        38,
+        33
+      ],
+      "visible_pixels": 625
+    }
+  ]
+}

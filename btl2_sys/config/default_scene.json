@@ -1,0 +1,38 @@
+{
+  "camera": {
+    "eye": [0.0, 2.2, 8.5],
+    "target": [0.0, 1.4, -14.0],
+    "up": [0.0, 1.0, 0.0],
+    "fovy": 48.0,
+    "near": 0.1,
+    "far": 180.0
+  },
+  "lighting": {
+    "sun_direction": [0.45, -1.0, -0.15],
+    "sun_color": [1.0, 0.98, 0.95],
+    "sun_intensity": 1.2,
+    "fill_position": [4.0, 6.0, 8.0],
+    "fill_color": [0.62, 0.68, 0.75],
+    "fill_intensity": 0.95,
+    "street_light_intensity": 0.0,
+    "street_light_color": [1.0, 0.9, 0.68],
+    "street_light_count": 8,
+    "street_light_height": 6.4,
+    "sky_color": [0.60, 0.73, 0.90],
+    "ambient_strength": 0.30,
+    "shadow_strength": 0.70,
+    "disable_shadows": false
+  },
+  "scene": {
+    "lanes_x": [-2.8, 0.0, 2.8],
+    "z_spawn_min": -40.0,
+    "z_spawn_max": -6.0,
+    "traffic_direction": "into_scene",
+    "n_cars": [2, 4],
+    "n_trucks": [1, 2],
+    "n_bikes": [0, 0],
+    "n_motos": [0, 0],
+    "n_persons": [2, 4],
+    "n_trees": [3, 5]
+  }
+}

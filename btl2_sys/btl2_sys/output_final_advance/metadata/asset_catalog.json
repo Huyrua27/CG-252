@@ -1,0 +1,269 @@
+{
+  "class_names": [
+    "car",
+    "truck",
+    "bike",
+    "moto",
+    "person",
+    "tree",
+    "road",
+    "building"
+  ],
+  "assets": [
+    {
+      "key": "car_audi_r8",
+      "category": "car",
+      "obj_relpath": "object/extracted/xihu59td0bnk-AudiR8Spyder_2017/3D Models/Audi_R8_2017.obj",
+      "billboard_texture_relpath": null,
+      "forced_texture_relpaths": [],
+      "reference_globs": [
+        "object/extracted/xihu59td0bnk-AudiR8Spyder_2017/Renders/*.png"
+      ],
+      "max_faces": null,
+      "keep_largest_component": false,
+      "remove_outliers": false,
+      "scale_mode": "length",
+      "target_size": 4.6,
+      "fixed_scale": null,
+      "base_rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_offset": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "notes": "High-detail car mesh with render references.",
+      "obj_path": "C:\\Users\\Trần Minh Huy\\Downloads\\CG_252-BTL2-1\\Sample\\object\\extracted\\xihu59td0bnk-AudiR8Spyder_2017\\3D Models\\Audi_R8_2017.obj"
+    },
+    {
+      "key": "car_mercedes",
+      "category": "car",
+      "obj_relpath": "object/extracted/32-mercedes-benz-gls-580-2020/uploads_files_2787791_Mercedes+Benz+GLS+580.obj",
+      "billboard_texture_relpath": null,
+      "forced_texture_relpaths": [],
+      "reference_globs": [],
+      "max_faces": null,
+      "keep_largest_component": false,
+      "remove_outliers": false,
+      "scale_mode": "length",
+      "target_size": 5.0,
+      "fixed_scale": null,
+      "base_rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_offset": [
+        0.0,
+        0.06,
+        0.0
+      ],
+      "notes": "",
+      "obj_path": "C:\\Users\\Trần Minh Huy\\Downloads\\CG_252-BTL2-1\\Sample\\object\\extracted\\32-mercedes-benz-gls-580-2020\\uploads_files_2787791_Mercedes+Benz+GLS+580.obj"
+    },
+    {
+      "key": "truck_main",
+      "category": "truck",
+      "obj_relpath": "object/extracted/64-truck/untitled_trianglefaced.obj",
+      "billboard_texture_relpath": null,
+      "forced_texture_relpaths": [],
+      "reference_globs": [
+        "object/extracted/64-truck/Truck.png"
+      ],
+      "max_faces": null,
+      "keep_largest_component": false,
+      "remove_outliers": false,
+      "scale_mode": "length",
+      "target_size": 8.2,
+      "fixed_scale": null,
+      "base_rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_offset": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "obj_path": "C:\\Users\\Trần Minh Huy\\Downloads\\CG_252-BTL2-1\\Sample\\object\\extracted\\64-truck\\untitled_trianglefaced.obj"
+    },
+    {
+      "key": "bike_mountain",
+      "category": "bike",
+      "obj_relpath": "object/extracted/54-mountain_bike/Mountain_Bike/OBJ/Mountain_Bike.obj",
+      "billboard_texture_relpath": null,
+      "forced_texture_relpaths": [],
+      "reference_globs": [],
+      "max_faces": null,
+      "keep_largest_component": false,
+      "remove_outliers": true,
+      "scale_mode": "length",
+      "target_size": 1.85,
+      "fixed_scale": null,
+      "base_rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_offset": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "obj_path": "C:\\Users\\Trần Minh Huy\\Downloads\\CG_252-BTL2-1\\Sample\\object\\extracted\\54-mountain_bike\\Mountain_Bike\\OBJ\\Mountain_Bike.obj"
+    },
+    {
+      "key": "moto_simple",
+      "category": "moto",
+      "obj_relpath": "object/extracted/22-moto_simple/moto_simple_1.obj",
+      "billboard_texture_relpath": null,
+      "forced_texture_relpaths": [],
+      "reference_globs": [],
+      "max_faces": null,
+      "keep_largest_component": false,
+      "remove_outliers": true,
+      "scale_mode": "length",
+      "target_size": 2.1,
+      "fixed_scale": null,
+      "base_rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_offset": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "obj_path": "C:\\Users\\Trần Minh Huy\\Downloads\\CG_252-BTL2-1\\Sample\\object\\extracted\\22-moto_simple\\moto_simple_1.obj"
+    },
+    {
+      "key": "tree_tyro",
+      "category": "tree",
+      "obj_relpath": "object/extracted/1f9jtr180dxk-Tree1ByTyroSmith/Tree1/Tree1.obj",
+      "billboard_texture_relpath": null,
+      "forced_texture_relpaths": [],
+      "reference_globs": [
+        "object/extracted/1f9jtr180dxk-Tree1ByTyroSmith/Tree1/render1hdcool.png"
+      ],
+      "max_faces": null,
+      "keep_largest_component": false,
+      "remove_outliers": true,
+      "scale_mode": "height",
+      "target_size": 6.0,
+      "fixed_scale": null,
+      "base_rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_offset": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "obj_path": "C:\\Users\\Trần Minh Huy\\Downloads\\CG_252-BTL2-1\\Sample\\object\\extracted\\1f9jtr180dxk-Tree1ByTyroSmith\\Tree1\\Tree1.obj"
+    },
+    {
+      "key": "road_street",
+      "category": "road",
+      "obj_relpath": "object/extracted/80-street/rua para blender/untitled.obj",
+      "billboard_texture_relpath": null,
+      "forced_texture_relpaths": [
+        "object/extracted/80-street/rua para blender/rua com faixada.jpg",
+        "object/extracted/80-street/rua para blender/render4.png",
+        "object/extracted/80-street/rua para blender/render2.png",
+        "object/extracted/80-street/rua para blender/render.png"
+      ],
+      "reference_globs": [
+        "object/extracted/80-street/rua para blender/render*.png"
+      ],
+      "max_faces": null,
+      "keep_largest_component": false,
+      "remove_outliers": false,
+      "scale_mode": "fixed",
+      "target_size": 1.0,
+      "fixed_scale": [
+        4.2,
+        1.0,
+        2.2
+      ],
+      "base_rotation_deg": [
+        0.0,
+        90.0,
+        0.0
+      ],
+      "base_offset": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "obj_path": "C:\\Users\\Trần Minh Huy\\Downloads\\CG_252-BTL2-1\\Sample\\object\\extracted\\80-street\\rua para blender\\untitled.obj"
+    },
+    {
+      "key": "building_city",
+      "category": "building",
+      "obj_relpath": "object/extracted/br0e6h1jamf4-building2/building2/building.obj",
+      "billboard_texture_relpath": null,
+      "forced_texture_relpaths": [],
+      "reference_globs": [
+        "object/extracted/br0e6h1jamf4-building2/building2/building*.png"
+      ],
+      "max_faces": null,
+      "keep_largest_component": false,
+      "remove_outliers": true,
+      "scale_mode": "height",
+      "target_size": 18.0,
+      "fixed_scale": null,
+      "base_rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_offset": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "notes": "",
+      "obj_path": "C:\\Users\\Trần Minh Huy\\Downloads\\CG_252-BTL2-1\\Sample\\object\\extracted\\br0e6h1jamf4-building2\\building2\\building.obj"
+    },
+    {
+      "key": "person_billboard",
+      "category": "person",
+      "obj_relpath": null,
+      "billboard_texture_relpath": "object/extracted/55-rp_nathan_animated_003_walking_fbx/rp_nathan_animated_003_walking_A.jpg",
+      "forced_texture_relpaths": [],
+      "reference_globs": [
+        "object/extracted/55-rp_nathan_animated_003_walking_fbx/rp_nathan_animated_003_walking_A.jpg"
+      ],
+      "max_faces": 2,
+      "keep_largest_component": false,
+      "remove_outliers": false,
+      "scale_mode": "height",
+      "target_size": 1.75,
+      "fixed_scale": null,
+      "base_rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "base_offset": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "notes": "Pedestrian billboard because provided person assets are FBX-only.",
+      "billboard_texture_path": "C:\\Users\\Trần Minh Huy\\Downloads\\CG_252-BTL2-1\\Sample\\object\\extracted\\55-rp_nathan_animated_003_walking_fbx\\rp_nathan_animated_003_walking_A.jpg"
+    }
+  ]
+}

@@ -1,0 +1,325 @@
+
+
+===== PAGE 1 =====
+
+BK
+TP .HCM
+BÀI TẬP LỚN – ĐỒ HỌA MÁY TÍNH
+Học kỳ I – Năm học 2025–2026
+Khoa Khoa học Máy tính
+Trường Đại học Bách Khoa TP.HCM (HCMUT), ĐHQG-HCM
+Giảng viên phụ trách: TS. Lê Thanh Sách
+Ngày 9 tháng 3 năm 2026
+Phiên bản hiện tại: v1.0
+Lịch sử Phiên bản
+Phiên bản Ngày Chi tiết cập nhật
+1.0 2025-09-01 Phiên bản khởi tạo.
+Giới thiệu
+Bộ bài tập lớn này được thiết kế nhằm giúp sinh viên có được trải nghiệm thực hành trong
+lập trình đồ họa máy tính hiện đại. Thông qua hai bài tập lớn, sinh viên sẽ học cách tạo và
+hiển thị (render) các cảnh hình học bằng cách sử dụng OpenGL hiện đại hoặc các thư viện
+tương đương trên nhiều nền tảng khác nhau. Trọng tâm là hiểu và sử dụng pipeline đồ họa
+lập trình được với các shader tự viết bằng GLSL (OpenGL Shading Language), thay vì dựa
+vào các kỹ thuật fixed-function đã lỗi thời.
+Tùy theo ngôn ngữ lập trình hoặc môi trường phát triển ưa thích, sinh viên có thể lựa
+chọn một trong nhiều API dựng hình sau:
+1
+
+===== PAGE 2 =====
+
+HCMUT - Khoa Khoa học Máy tính Học phần: Đồ họa Máy tính
+• OpenGL (C++) : API đồ họa đa nền tảng tiêu chuẩn. Sinh viên được kỳ vọng sử
+dụng phương pháp dựng hình dựa trên shader với các thư viện như GLFW, GLEW, hoặc
+GLM.
+• PyOpenGL (Python) : Binding OpenGL cho Python, hỗ trợ lập trình đồ họa hiện
+đại. Thường được dùng kèm với GLFW, PyGLM, hoặc ModernGL.
+• WebGL (JavaScript): Phiên bản dựa trên web của OpenGL ES 2.0 với hỗ trợ shader.
+Các framework phổ biến gồm Three.js và Babylon.js.
+Bằng việc hoàn thành hai bài tập lớn, sinh viên sẽ tìm hiểu nhiều chủ đề cốt lõi trong đồ
+họa máy tính, bao gồm ma trận biến đổi, dựng hình hình học 3D, mô hình chiếu sáng, và
+sinh dữ liệu tổng hợp phục vụ cho các bài toán thị giác máy tính phía sau.
+1 Bài tập lớn 1: Dựng hình Đối tượng 2D và 3D
+1.1 Phần 1: Vẽ các Hình cơ bản
+Sinh viên phải thiết kế và hiện thực một ứng dụng đồ họa tương tác có khả năng dựng hình
+nhiều đối tượng 2D và 3D cơ bản. Ứng dụng phải hỗ trợ các kỹ thuật dựng hình hiện đại và
+cung cấp giao diện thân thiện cho người dùng để tạo và thao tác các đối tượng trong cảnh.
+1.1.1 Các hình cần hỗ trợ:
+• Hình 2D: tam giác, hình chữ nhật, ngũ giác, lục giác đều, hình tròn, elip, hình thang,
+ngôi sao, mũi tên.
+• Hình 3D:
+– Khối cơ bản: lập phương (cube), mặt cầu (sphere – cần mô hình bằng ít nhất 3
+cách khác nhau , ví dụ: (1) chia nhỏ tứ diện đều rồi chuẩn hóa bán kính; (2) chia
+nhỏ lưới hình vuông (grid) trên mặt phẳng rồi chiếu lên mặt cầu; (3) sử dụng hệ
+tọa độ kinh-vĩ độ (lat-long)), trụ (cylinder), nón (cone), nón cụt (truncated cone),
+tứ diện (tetrahedron), xuyến (torus), lăng trụ (prism).
+– Mặt toán học được định nghĩa bởi hàm do người dùng cung cấp z = f (x, y).
+– Mô hình 3D được nhập từ file .obj hoặc .ply.
+1.1.2 Yêu cầu cơ bản
+Về lighting và shading:
+• Ứng dụng phải có giao diện đồ họa (GUI) với menu hoặc thanh công cụ cho phép người
+dùng chọn loại hình cần vẽ hoặc thêm vào cảnh.
+• Ứng dụng phải hỗ trợ tương tác bằng chuột và/hoặc bàn phím để phóng to (zoom),
+tịnh tiến (pan) và quay (rotate) các đối tượng trong cảnh.
+Trang 2
+
+===== PAGE 3 =====
+
+HCMUT - Khoa Khoa học Máy tính Học phần: Đồ họa Máy tính
+• Ứng dụng phải cung cấp nhiều chế độ dựng hình cho mỗi đối tượng:
+– (A) Màu phẳng (flat color) – toàn bộ đối tượng có một màu đồng nhất.
+– (B) Nội suy màu theo đỉnh.
+– (C) Chiếu sáng dùng Gouraud shading hoặc Phong shading (tính chiếu sáng theo
+từng điểm ảnh – per-fragment).
+– (D) Ánh xạ texture (texture mapping) sử dụng các ảnh bên ngoài do người dùng
+cung cấp.
+– (E) Tổ hợp các phương pháp (B), (C), (D) để tính chiếu sáng cho đối tượng.
+– (F) Chế độ khung dây (wireframe) để chỉ hiển thị các cạnh của hình.
+Về nguồn sáng:
+• Phải có nhiều nguồn sáng khác nhau.
+• Cho phép dùng phím hay chuột để turn on/off các nguồn sáng.
+Về camera:
+• Phải có nhiều camera với các góc nhìn khác nhau.
+• Cho phép dùng phím hay chuột để chuyển đổi giữa các camera.
+• Cho phép dùng phím hay chuột để zoom in/out camera.
+• Cho phép dùng phím hay chuột để quay camera.
+Về nội dung ảnh hiển thị:
+• Cho phép hiển thị ảnh RGB hay depth map.
+1.2 Phần 2: Minh họa trực quan giải thuật Stochastic Gradient
+Descent và các biến thể
+Mục tiêu của phần này là xây dựng một ứng dụng trực quan để mô phỏng quá trình tối ưu
+hóa của các giải thuật gradient descent trên các hàm mất mát đơn giản.
+Yêu cầu cơ bản:
+• Cho phép lựa chọn một số hàm mất mát (loss function) điển hình, ví dụ:
+– Hàm Himmelblau: ví dụ f (x, y) = ( x2 + y − 11)2 + (x + y2 − 7)2.
+– Hàm Rosenbrock (banana function): ví dụ f (x, y) = ( a − x)2 + b(y − x2)2 với các
+hằng số a, b cho trước.
+– Hàm Booth: ví dụ f (x, y) = ( x + 2y − 7)2 + (2x + y − 5)2.
+Trang 3
+
+===== PAGE 4 =====
+
+HCMUT - Khoa Khoa học Máy tính Học phần: Đồ họa Máy tính
+– Một hàm quadratic 2D đơn giản: ví dụ f (x, y) = x2 + y2.
+• Hiển thị trực quan bề mặt hàm mất mát (surface 3D) hoặc các đường đồng mức (contour
+plot) kèm vị trí tham số hiện tại.
+• Mô phỏng từng bước cập nhật tham số của các giải thuật:
+– Gradient Descent (batch).
+– Stochastic Gradient Descent (SGD).
+– Mini-batch SGD.
+– Các biến thể có momentum (ví dụ: Momentum, Nesterov, Adam) – có thể xem là
+tùy chọn nâng cao.
+• Cung cấp giao diện điều khiển (GUI) cho phép người dùng thay đổi:
+– Learning rate.
+– Hệ số momentum (nếu sử dụng).
+– Số epoch hoặc số bước lặp tối đa.
+• Cho phép người dùng:
+– Bắt đầu/tạm dừng/tiếp tục mô phỏng.
+– Thiết lập lại (reset) vị trí tham số ban đầu.
+– Điều chỉnh tốc độ mô phỏng (nhanh/chậm).
+• Hiển thị quỹ đạo tối ưu hóa (trajectory) của từng giải thuật dưới dạng đường đi trên
+bề mặt hoặc trên mặt phẳng contour, với màu sắc khác nhau cho từng giải thuật.
+• Hiển thị các thông tin số liệu trong quá trình chạy, ví dụ:
+– Giá trị hàm mất mát hiện tại.
+– Độ lớn gradient.
+– Số bước lặp đã thực hiện.
+Gợi ý triển khai:
+• Dùng màu sắc hoặc độ cao để phân biệt các vùng có giá trị mất mát cao/thấp.
+• Dùng các đối tượng nhỏ (ví dụ: hình cầu hoặc điểm) để biểu diễn vị trí tham số cho
+từng giải thuật, mỗi giải thuật một màu riêng.
+• Có thể cho phép chạy song song nhiều giải thuật trên cùng một hàm mất mát để so
+sánh trực quan hiệu quả tối ưu hóa.
+Trang 4
+
+===== PAGE 5 =====
+
+HCMUT - Khoa Khoa học Máy tính Học phần: Đồ họa Máy tính
+1.3 Phần 3: Trực quan hóa Nguyên tử và Phân tử
+Sinh viên phải thiết kế và hiện thực một ứng dụng tương tác để trực quan hóa cấu trúc
+nguyên tử và phân tử bằng các kỹ thuật đồ họa hiện đại.
+Các tính năng bắt buộc:
+• Ứng dụng phải có giao diện đồ họa (GUI) với menu hoặc thanh công cụ cho phép người
+dùng truy cập và bật/tắt các tính năng sau:
+– Trực quan hóa nguyên tử theo mô hình Bohr: Dựng hình các electron quay
+quanh hạt nhân trên các quỹ đạo (vỏ) riêng biệt. Electron có thể được biểu diễn
+bằng các hình cầu nhỏ quay quanh hạt nhân. (Tài liệu tham khảo: Wikipedia -
+Bohr model)
+– Trực quan hóa các phân tử đơn giản: Dựng hình các phân tử thông dụng (ví
+dụ: H 2O, CO 2) trong đó:
+∗ Nguyên tử được biểu diễn bằng các hình cầu có màu sắc khác nhau (ví dụ:
+đỏ cho oxy, trắng cho hydro, đen cho carbon).
+∗ Liên kết giữa các nguyên tử được biểu diễn bằng các hình trụ nối giữa các
+hình cầu.
+(Tài liệu tham khảo: Wikipedia - Ball-and-stick model)
+– Tùy chọn: Mô phỏng chuyển động động:
+∗ Chuyển động của electron trên quỹ đạo (cho mô hình nguyên tử).
+∗ Dao động hoặc quay của phân tử (đối với các phân tử nhỏ).
+Tài liệu tham khảo:
+∗ Bohr Model – Wikipedia
+∗ Molecular Vibration – Wikipedia
+∗ Infrared Spectroscopy – Wikipedia
+Gợi ý cài đặt:
+• Sử dụng cấu trúc scene graph để quản lý nguyên tử và liên kết như các đối tượng phân
+cấp.
+• Sử dụng ma trận biến đổi để mô phỏng chuyển động của electron hoặc hiệu ứng dao
+động.
+• Dùng các vật liệu (materials) và thiết lập chiếu sáng khác nhau để làm nổi bật cấu trúc
+nguyên tử và liên kết.
+Trang 5
+
+===== PAGE 6 =====
+
+HCMUT - Khoa Khoa học Máy tính Học phần: Đồ họa Máy tính
+2 Bài tập lớn 2: Bộ Sinh Ảnh Tổng hợp cho Phát hiện,
+Phân đoạn và Ước lượng Độ sâu trong Cảnh Xe Di
+chuyển Trên Đường
+2.1 Mục tiêu
+Bài tập này tập trung vào việc xây dựng một hệ thống sinh ảnh tổng hợp có khả năng tạo
+ra ảnh RGB chất lượng cao cùng với các nhãn ground truth có cấu trúc cho nhiều tác vụ thị
+giác máy tính, bao gồm phát hiện đối tượng (object detection), phân đoạn instance (instance
+segmentation), và ước lượng độ sâu đơn ảnh (monocular depth estimation).
+Trong phạm vi học phần, ưu tiên (khuyến khích) sinh viên mô phỏng bối cảnh xe di
+chuyển trên đường tương tự một hệ thống đơn giản kiểu CALAR: camera gắn trên xe
+quan sát làn đường, xe khác, người đi bộ, biển báo, đèn giao thông và các vật thể liên quan
+đến giao thông đường bộ.
+Mục tiêu chính là mô phỏng các cảnh thị giác đa dạng (đặc biệt là cảnh giao thông đường
+bộ) bằng cách dựng hình các đối tượng 2D hoặc 3D dưới nhiều cấu hình khác nhau (vị trí,
+kích thước, texture, chiếu sáng, góc nhìn camera). Hệ thống phải tự động tạo và xuất ra:
+• Ảnh RGB: Các cảnh đã được dựng hình với nhiều đối tượng được sắp xếp ngẫu nhiên
+hoặc thủ công, dưới các điều kiện nền và chiếu sáng khác nhau.
+• Nhãn Ground Truth:
+– Phát hiện đối tượng (Object Detection): Hộp giới hạn 2D (bounding box)
+kèm nhãn lớp cho mỗi đối tượng nhìn thấy được (theo định dạng COCO hoặc
+YOLO).
+– Phân đoạn instance (Instance Segmentation): Mặt nạ nhị phân theo từng
+instance hoặc đa giác (polygon) cho tất cả đối tượng trong cảnh.
+– Ước lượng độ sâu (Depth Estimation): Bản đồ độ sâu theo từng điểm ảnh,
+biểu diễn khoảng cách từ camera đến bề mặt trong cảnh.
+• Siêu dữ liệu cảnh (Scene Metadata, tùy chọn): Các log dạng JSON hoặc CSV
+có cấu trúc, chứa pose của đối tượng, tham số camera, cờ hiển thị, thống kê che khuất
+(occlusion), và cấu hình dựng hình.
+Trang 6
+
+===== PAGE 7 =====
+
+HCMUT - Khoa Khoa học Máy tính Học phần: Đồ họa Máy tính
+Hình 1: Ví dụ một ảnh RGB được sinh và các nhãn tương ứng: mặt nạ phân đoạn và bản đồ
+độ sâu
+Dự án này kết nối giữa đồ họa 3D và kỹ thuật xây dựng bộ dữ liệu cho thị giác máy tính.
+Nó giúp sinh viên hiểu được cách pipeline dữ liệu tổng hợp hỗ trợ mô hình học sâu và giảm
+bớt sự phụ thuộc vào gán nhãn thủ công.
+2.2 Các yêu cầu chính
+• Thiết kế các cảnh 3D tĩnh hoặc động có nhiều đối tượng thuộc các nhóm khác nhau.
+– Đối tượng phải được nạp từ các file bên ngoài ở định dạng .obj hoặc .ply.
+– Sinh viên có thể lấy các mô hình mẫu từ các kho trực tuyến như:
+∗ Free3D (mô hình .obj) – bộ sưu tập lớn các mô hình miễn phí ở định dạng
+OBJ.
+∗ CGTrader Free Models – cung cấp nhiều mô hình 3D miễn phí ở nhiều định
+dạng, bao gồm OBJ và FBX.
+∗ Artec 3D Scanned Models (.ply) – các mô hình quét 3D chất lượng cao ở định
+dạng PLY.
+∗ Stanford Bunny (.ply) – mô hình kiểm thử kinh điển ở định dạng PLY, thường
+dùng trong nghiên cứu đồ họa.
+– Đối với các cảnh 3D đầy đủ (ví dụ: phòng, môi trường trong nhà, bố trí nội thất),
+sinh viên có thể tham khảo:
+∗ SketchUp 3D Warehouse – các mô hình miễn phí về tòa nhà, nội thất, cảnh
+trong/ngoài nhà.
+∗ Open3D Dataset Gallery – cung cấp các cảnh trong nhà và tập dữ liệu point
+cloud 3D, bao gồm cả mesh.
+∗ Matterport3D Dataset (by Stanford) – các cảnh trong nhà quét thực tế cùng
+mesh và ảnh RGB-D.
+∗ ScanNet Dataset – các tái dựng 3D có gán nhãn phong phú của cảnh trong
+nhà (định dạng PLY).
+• Dựng hình và xuất ra cho mỗi cảnh:
+Trang 7
+
+===== PAGE 8 =====
+
+HCMUT - Khoa Khoa học Máy tính Học phần: Đồ họa Máy tính
+– Ảnh RGB.
+– Bản đồ độ sâu (ví dụ: ảnh mức xám hoặc mảng số thực).
+– Mặt nạ phân đoạn (theo từng instance hoặc theo lớp).
+– Hộp giới hạn (bounding boxes) kèm nhãn lớp.
+• Hỗ trợ xuất nhãn theo các định dạng chuẩn:
+– Định dạng COCO (JSON).
+– Định dạng YOLO (TXT + ảnh).
+– Schema CSV/JSON tùy chỉnh nếu cần.
+2.3 Mở rộng tùy chọn
+• Mô phỏng bám vết đối tượng (object tracking) qua nhiều khung hình.
+• Thêm mô tả (caption) để tạo cặp văn bản–ảnh.
+• Thay đổi chiếu sáng, góc nhìn camera và nền cảnh.
+3 Các sản phẩm cần nộp
+Sinh viên phải nộp hai thành phần sau:
+1. Báo cáo: Nộp cả file .tex và file .pdf đã biên dịch. Báo cáo phải bao gồm:
+• Mô tả kiến trúc và các thành phần chính của ứng dụng.
+• Giải thích chi tiết các tính năng đã hiện thực và hướng dẫn sử dụng cho người
+dùng.
+• Hình chụp màn hình (screenshot) của tất cả các cảnh đã dựng để minh họa chức
+năng.
+• Đường dẫn tới kho GitHub chứa toàn bộ mã nguồn.
+2. Gói Mã nguồn:
+• Toàn bộ mã nguồn của ứng dụng.
+• Hướng dẫn cài đặt, bao gồm các thư viện phụ thuộc và các bước cấu hình.
+• Các file dữ liệu cần thiết (ví dụ: texture, mô hình) để chương trình có thể chạy.
+Hình thức nộp: Tất cả tài liệu phải được tải lên thư mục nộp bài tập dùng chung trên
+hệ thống LMS (Learning Management System) của học phần.
+Trang 8
+
+===== PAGE 9 =====
+
+HCMUT - Khoa Khoa học Máy tính Học phần: Đồ họa Máy tính
+3.1 Mốc thời gian và Đánh giá tiến độ
+Để đảm bảo tiến độ và có phản hồi sớm, mỗi bài tập lớn bao gồm hai giai đoạn bắt buộc:
+• Báo cáo Tiến độ: Sinh viên phải nộp một báo cáo ngắn trước hạn nộp cuối cùng,
+trình bày trạng thái hiện tại của phần hiện thực, các hình minh họa (nếu có) và những
+khó khăn đang gặp phải. Báo cáo này được dùng để phản hồi và chấm điểm một phần.
+• Nộp Bài cuối cùng: Bao gồm đầy đủ các sản phẩm cần nộp như mô tả ở trên. Nộp
+trễ có thể bị trừ điểm trừ khi có lý do chính đáng.
+Bài tập lớn Chủ đề Theo dõi tiến độ Hạn chót
+Bài tập lớn 1 Dựng hình các hình
+2D/3D
+Demo tiến độ trên lớp nhiều lần;
+lần cuối diễn ra gần hạn chót
+April 07, 2026
+Bài tập lớn 2 Bộ sinh ảnh tổng hợp
+cảnh xe chạy trên
+đường
+Demo tiến độ trên lớp nhiều lần;
+lần cuối diễn ra gần hạn chót
+Trước buổi học cuối cùng
+Bảng 2: Các mốc thời gian và hạn chót cho bài tập lớn
+3.2 Thang điểm
+Điểm học phần được tính dựa trên hai bài tập lớn, mỗi bài chiếm 50% tổng điểm. Mỗi bài
+tập lớn tiếp tục được chia thành nhiều thành phần nhỏ hơn, được đánh giá riêng để phản
+ánh cả chức năng và chất lượng thiết kế.
+• Bài tập lớn 1 (60%): Dựng hình các hình 2D/3D
+– Phần 1 – Vẽ các Hình cơ bản (20%):
+– Phần 2 – Mô phỏng SGD (20%):
+– Phần 3 – Trực quan hóa Nguyên tử và Phân tử (20%):
+• Bài tập lớn 2 (40%): Bộ Sinh Ảnh Tổng hợp
+– Thiết kế Cảnh và Dựng hình (10%):
+∗ Nạp đối tượng từ các file .obj hoặc .ply.
+∗ Cấu hình cảnh với chiếu sáng, texture và thiết lập camera.
+– Sinh Nhãn Ground Truth (10%):
+∗ Xuất hộp giới hạn (bounding box) và mặt nạ phân đoạn theo định dạng chuẩn
+(ví dụ: COCO, YOLO).
+∗ File nhãn phải khớp với dữ liệu ảnh và được định dạng chính xác.
+– Nhãn Độ sâu (10%):
+Trang 9
+
+===== PAGE 10 =====
+
+HCMUT - Khoa Khoa học Máy tính Học phần: Đồ họa Máy tính
+∗ Sinh bản đồ độ sâu theo từng điểm ảnh hoặc chiếu điểm (point cloud).
+∗ Kết quả phải căn chỉnh với độ phân giải ảnh RGB.
+– Khả năng sử dụng và Xuất bộ dữ liệu (10%):
+∗ Cung cấp cấu trúc thư mục và quy ước đặt tên rõ ràng.
+∗ Đính kèm các file siêu dữ liệu (ví dụ: pose camera, vị trí đối tượng).
+– Bonus 15% nếu sinh viên tích hợp được với mô hình thị giác máy tính
+để chứng minh khả năng phát hiện, phân đoạn và ước lượng độ sâu
+Lưu ý Quan trọng
+Vui lòng thường xuyên truy cập trang học phần Computer Graphics (CO3059) . Đây là
+kênh trung tâm để:
+• Đặt câu hỏi và thảo luận các ý tưởng liên quan đến bài tập lớn.
+• Nhận các cập nhật về yêu cầu, thời hạn và tiêu chí chấm điểm.
+• Chia sẻ tài nguyên và giữ kết nối với lớp.
+Trang 10

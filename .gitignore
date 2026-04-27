@@ -1,0 +1,12 @@
+object/
+*.png
+*.jpg
+*.jpeg
+*.mp4
+*.avi
+*.mov
+*.mkv
+output_view_night_street/
+btl2_sys/output_final_advance/
+__pycache__/
+*.pyc
